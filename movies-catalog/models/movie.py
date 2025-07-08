@@ -26,7 +26,7 @@ class Movie(Base):
         server_default="",
     )
     release_data: Mapped[date | None] = mapped_column(
-            Date,
+        Date,
     )
     duration: Mapped[int | None] = mapped_column(
         Integer,
