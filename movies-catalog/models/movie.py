@@ -31,6 +31,7 @@ class Movie(Base):
     duration: Mapped[int | None] = mapped_column(
         Integer,
     )
+    # TODO
 
     def __str__(self) -> str:
         return self.title
