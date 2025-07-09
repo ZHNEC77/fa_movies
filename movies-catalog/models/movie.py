@@ -1,10 +1,10 @@
 from datetime import date
 from sqlalchemy import (
     Integer,
-    BigInteger,
     String,
     Text,
     Date,
+    Identity,
 )
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -13,7 +13,8 @@ from models import Base
 
 class Movie(Base):
     id: Mapped[int] = mapped_column(
-        BigInteger,
+        Integer,
+        Identity(always=True),
         primary_key=True,
     )
     title: Mapped[str] = mapped_column(
@@ -25,7 +26,7 @@ class Movie(Base):
         default="",
         server_default="",
     )
-    release_data: Mapped[date | None] = mapped_column(
+    release_date: Mapped[date | None] = mapped_column(
         Date,
     )
     duration: Mapped[int | None] = mapped_column(

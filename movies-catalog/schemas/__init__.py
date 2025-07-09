@@ -1,5 +1,13 @@
 __all__ = (
-    "MovieAttributesSchema",
+    "MovieBaseSchema",
+    "MovieCreateSchema",
+    "MovieUpdateSchema",
+    "MovieSchema",
 )
 
-from .movie import MovieAttributesSchema
+from .movie import (
+    MovieBaseSchema,
+    MovieCreateSchema,
+    MovieUpdateSchema,
+    MovieSchema,
+)

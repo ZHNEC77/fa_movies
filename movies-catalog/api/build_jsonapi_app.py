@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi_jsonapi import ApplicationBuilder
 from api.generic_view import GenericView
 from models import Movie
-from schemas import MovieAttributesSchema
+from schemas import MovieBaseSchema, MovieCreateSchema, MovieUpdateSchema
 
 
 def build_jsonapi_app(app: FastAPI) -> ApplicationBuilder:
@@ -13,10 +13,10 @@ def build_jsonapi_app(app: FastAPI) -> ApplicationBuilder:
         resource_type="movie",
         view=GenericView,
         model=Movie,
-        schema=MovieAttributesSchema,
+        schema=MovieBaseSchema,
         # router=router,
-        # schema_in_post=schema_in_post,
-        # schema_in_patch=schema_in_patch,
+        schema_in_post=MovieCreateSchema,
+        schema_in_patch=MovieUpdateSchema,
         # pagination_default_size=pagination_default_size,
         # pagination_default_number=pagination_default_number,
         # pagination_default_offset=pagination_default_offset,
