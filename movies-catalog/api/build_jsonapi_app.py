@@ -1,5 +1,8 @@
 from fastapi import FastAPI
 from fastapi_jsonapi import ApplicationBuilder
+from api.generic_view import GenericView
+from models import Movie
+from schemas import MovieAttributesSchema
 
 
 def build_jsonapi_app(app: FastAPI) -> ApplicationBuilder:
@@ -8,9 +11,9 @@ def build_jsonapi_app(app: FastAPI) -> ApplicationBuilder:
         path="/movies",
         tags=["Movies"],
         resource_type="movie",
-        view=view,
-        model=model,
-        schema=schema,
+        view=GenericView,
+        model=Movie,
+        schema=MovieAttributesSchema,
         router=router,
         schema_in_post=schema_in_post,
         schema_in_patch=schema_in_patch,
